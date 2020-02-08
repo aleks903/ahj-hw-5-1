@@ -18,11 +18,11 @@ module.exports = {
       filename: './index.html',
       // favicon: './src/favicon.ico',
     }),
-    new CopyPlugin([
-      {
-        from: './src/img/', to: 'img/',
-      }
-    ]),
+    // new CopyPlugin([
+    //   {
+    //     from: './src/img/', to: 'img/',
+    //   }
+    // ]),
   ],
   devServer: {
     port: 9000,
@@ -51,30 +51,30 @@ module.exports = {
           },
         ],
       },
-      {
-        test: /\.(png)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              esModule: false,
-              name: 'img/[name].[ext]',
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(txt)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              esModule: false,
-              name: '[name].[ext]',
-            },
-          },
-        ],
-      },
+      // {
+      //   test: /\.(png)$/,
+      //   use: [
+      //     {
+      //       loader: 'file-loader',
+      //       options: {
+      //         esModule: false,
+      //         name: 'img/[name].[ext]',
+      //       },
+      //     },
+      //   ],
+      // },
+      // {
+      //   test: /\.(txt)$/,
+      //   use: [
+      //     {
+      //       loader: 'file-loader',
+      //       options: {
+      //         esModule: false,
+      //         name: '[name].[ext]',
+      //       },
+      //     },
+      //   ],
+      // },
     ],
   },
 };

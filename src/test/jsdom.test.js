@@ -1,26 +1,23 @@
-import ValidateCardWidget from '../js/ValidateCardWidget.js';
+import Popovers from '../js/Popovers.js';
 
 test('should render self', () => {
-  document.body.innerHTML = '<div id="container"></div>';
-  const container = document.querySelector('#container');
-  const widget = new ValidateCardWidget(container);
-
+  const widget = new Popovers(document.body);
   widget.bindToDOM();
+  const container = document.querySelector('#popup');
 
-  expect(container.innerHTML).toEqual(ValidateCardWidget.markup);
+  expect(container.innerHTML).toEqual(widget.htmlElement);
 });
 
-test('should validate input', () => {
-  document.body.innerHTML = '<div id="container"></div>';
-  const container = document.querySelector('#container');
-  const widget = new ValidateCardWidget(container);
-
+test('show popup', () => {
+  const widget = new Popovers(document.body);
   widget.bindToDOM();
+  const container = document.querySelector('#popup');
 
-  const input = container.querySelector('[id=input]');
-  input.value = '371449635398431';
-  const submit = container.querySelector('.valid-card');
-  submit.submit();
+  const docBody = document.body;
+  docBody.addEventListener('click', () => {
+    widget.positionPopup(docBody);
+  });
+  docBody.click();
 
-  expect(input.classList.contains('valid')).toBeTruthy();
+  expect(container.classList.contains('hidden')).toBeFalsy();
 });

@@ -1,4 +1,3 @@
-import '../licenses.txt';
 import Popovers from './Popovers.js';
 
 const elementButton = document.getElementById('button');
@@ -6,8 +5,7 @@ const addPopup = new Popovers(document.body, 'Popover title', 'And here`s some a
 addPopup.bindToDOM();
 
 elementButton.addEventListener('click', () => {
-    
-    
+  addPopup.positionPopup(elementButton);
 });
 
 
